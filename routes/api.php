@@ -28,3 +28,4 @@ Route::post('login', [LoginController::class, 'login']);
 
 Route::get('profesores/inicial', [ProfesoreController::class, 'getDatosInicial'])->middleware('auth:sanctum');
 
+Route::get('contactanos', [ContactanoController::class, 'store']);
