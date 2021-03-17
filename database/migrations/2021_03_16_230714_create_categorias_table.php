@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonasTable extends Migration
+class CreateCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreatePersonasTable extends Migration
      */
     public function up()
     {
-        Schema::create('personas', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',100)->unique();
-            $table->string('tipo_documento',20);
-            $table->integer('num_documento');
-            $table->string('direccion',70);
-            $table->integer('telefono');
-            $table->string('email',20);
+            $table->string('descripcion',200);
+            $table->boolean('condicion')->default(1);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreatePersonasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personas');
+        Schema::dropIfExists('categorias');
     }
 }
