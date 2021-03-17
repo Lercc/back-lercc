@@ -38,18 +38,23 @@ class ContactanoController extends Controller
     
     public function store(Request $request)
     {
-        if (!$request->ajax()) return redirect('/');
+        // if (!$request->ajax()) return redirect('/');
         $contacto = new Contactano();
         $contacto->apellidos = $request->apellidos;
         $contacto->nombres = $request->nombres;
+        $contacto->dni = $request->dni;
+        $contacto->fecha_nacimiento = $request->fecha_nacimiento;
         $contacto->email = $request->email;
-        $contacto->telefono = $request->telefono;
-        $contacto->asunto = $request->asunto;
+        $contacto->celular = $request->celular;
+        $contacto->tipo_servicio = $request->tipo_servicio;
+        $contacto->comoseentero = $request->comoseentero;
         $contacto->save();
     }
+
+
     public function update(Request $request)
     {
-        if (!$request->ajax()) return redirect('/');
+        // if (!$request->ajax()) return redirect('/');
         $contacto = Contactano::findOrFail($request->id);
         $contacto->apellidos = $request->apellidos;
         $contacto->nombres = $request->nombres;

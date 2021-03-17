@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfesoreController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ContactanoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,4 +29,4 @@ Route::post('login', [LoginController::class, 'login']);
 
 Route::get('profesores/inicial', [ProfesoreController::class, 'getDatosInicial'])->middleware('auth:sanctum');
 
-Route::get('contactanos', [ContactanoController::class, 'store']);
+Route::post('contactanos', [ContactanoController::class, 'store']);
